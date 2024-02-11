@@ -1,16 +1,21 @@
-module Dom5
+module Dom6
 
   # Nation property numbers. These should all be listed in
   # attribute_keys.csv, but not all there.
   ATTR_HOME_REALM = 289
   ATTR_CHEAP_GOD_20 = 314
   ATTR_CHEAP_GOD_40 = 315
-  ATTR_BLESS_BONUS  = 330..337
-  BLESS_PATHS = %w[f a w e s d n b].map(&:intern)
+  ATTR_BLESS_BONUS  = 329
   
   ATTR_NO_UNDEAD_PRETENDER = 41
-  ATTR_COLD_SCALE = 58
-  ATTR_GROWTH_SCALE = 324
+  ATTR_ORDER_LIMIT = 640
+  ATTR_PRODUCTION_LIMIT = 641
+  ATTR_HEAT_LIMIT = 642
+  ATTR_GROWTH_LIMIT = 643
+  ATTR_LUCK_LIMIT = 644
+  ATTR_MAGIC_LIMIT = 645
+  ATTR_STARTING_COLD_SCALE = 705
+  ATTR_STARTING_GROWTH_SCALE = 324
 
   module InspectorReader
     def read
@@ -36,7 +41,9 @@ module Dom5
       read_a_file('nations') do | nation |
         nation = Nation.new( *nation.fields(*NATION_FIELDS) )
         nation.era = ERAS[nation.era]
-        @nations[ nation[:id] ] = nation
+        unless nation.era.nil?
+          @nations[ nation[:id] ] = nation
+        end
       end
     end
     
@@ -48,6 +55,16 @@ module Dom5
         if unit[:shapechange] && @pretenders.key?( unit[:shapechange] )
           warn "Skipping %s (shapechange of %s)" %
                [ unit[:name], @pretenders[ unit[:shapechange] ][:name] ]
+          next
+        end
+        if unit[:landshape] && @pretenders.key?( unit[:landshape] )
+          warn "Skipping %s (landshape of %s)" %
+                [ unit[:name], @pretenders[ unit[:landshape] ][:name] ]
+          next
+        end
+        if unit[:watershape] && @pretenders.key?( unit[:watershape] )
+          warn "Skipping %s (watershape of %s)" %
+                [ unit[:name], @pretenders[ unit[:watershape] ][:name] ]
           next
         end
 
@@ -101,16 +118,32 @@ module Dom5
           nation.cheap_gods[ val ] = 40
         elsif attr_i == ATTR_NO_UNDEAD_PRETENDER
           @no_undead_nations << nation_id
-        elsif attr_i == ATTR_COLD_SCALE
+        elsif attr_i == ATTR_ORDER_LIMIT
+            nation.scalelimits ||= {}
+            nation.scalelimits[:order] = val.to_i
+        elsif attr_i == ATTR_PRODUCTION_LIMIT
+          nation.scalelimits ||= {}
+          nation.scalelimits[:production] = val.to_i
+        elsif attr_i == ATTR_HEAT_LIMIT
+          nation.scalelimits ||= {}
+          nation.scalelimits[:heat] = val.to_i
+        elsif attr_i == ATTR_GROWTH_LIMIT
+          nation.scalelimits ||= {}
+          nation.scalelimits[:growth] = val.to_i
+        elsif attr_i == ATTR_LUCK_LIMIT
+          nation.scalelimits ||= {}
+          nation.scalelimits[:luck] = val.to_i
+        elsif attr_i == ATTR_MAGIC_LIMIT
+          nation.scalelimits ||= {}
+          nation.scalelimits[:magic] = val.to_i
+        elsif attr_i == ATTR_STARTING_COLD_SCALE
           nation.scales ||= {}
           nation.scales[:heat] = -val.to_i
-        elsif attr_i == ATTR_GROWTH_SCALE
+        elsif attr_i == ATTR_STARTING_GROWTH_SCALE
           nation.scales ||= {}
           nation.scales[:growth] = val.to_i
-        elsif ATTR_BLESS_BONUS.include?(attr_i)
-          bless_path = BLESS_PATHS[attr_i - ATTR_BLESS_BONUS.begin]
-          nation.bless_bonus ||= {}
-          nation.bless_bonus[ bless_path ] = val.to_i
+        elsif attr_i == ATTR_BLESS_BONUS
+          nation.bless_bonus = val.to_i
         end
       end
     end

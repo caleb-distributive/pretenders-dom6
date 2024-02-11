@@ -1,7 +1,7 @@
-require_relative 'ruby/dom5_pretender_data'
+require_relative 'ruby/dom6_pretender_data'
 
 # Set location of source data
-pd = Dom5::PretenderData.new("../dom5inspector/gamedata")
+pd = Dom6::PretenderData.new("../dom6inspector/gamedata")
 
 # Read it in
 pd.read

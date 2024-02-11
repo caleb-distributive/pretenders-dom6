@@ -1,11 +1,13 @@
 require 'csv'
 require 'json'
 
-module Dom5
+module Dom6
   PRETENDER_FIELDS_STR = [ :id, :name ]
   PRETENDER_FIELDS_INT = [ :startdom, :pathcost, :minprison,
+                           :moreorder, :moreprod, :moreheat,
+                           :moregrowth, :moreluck, :moremagic,
                            :f, :a, :w, :e,
-                           :s, :d, :n, :b ]
+                           :s, :d, :n, :g, :b ]
   PRETENDER_FIELDS = PRETENDER_FIELDS_STR +
                      PRETENDER_FIELDS_INT
   Pretender = Struct.new(*PRETENDER_FIELDS) do
@@ -15,14 +17,14 @@ module Dom5
   end
 
   NATION_FIELDS = [ :id, :name, :epithet, :era, :realms,
-                    :bless_bonus, :scales, :cheap_gods ]
+                    :bless_bonus, :scalelimits, :scales, :cheap_gods ]
   Nation = Struct.new(*NATION_FIELDS) do
     def to_json(*args)
       to_h.to_json
     end
   end
 
-  require_relative 'dom5_reader'
+  require_relative 'dom6_reader'
 
   class PretenderData
     include InspectorReader
