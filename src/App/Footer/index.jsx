@@ -21,8 +21,7 @@ function Footer(props) {
 	  </p>
 
           <p className={styles.row}>
-	    Pretender cost seems wrong? Please create <a href="https://github.com/caleb-distributive/pretenders-dom6" className={styles.value}>a new issue</a> about it or mail me at 
-      <address className={styles.mail}>zollqir@gmail.com</address>.
+	    Pretender cost seems wrong? Please create <a href="https://github.com/caleb-distributive/pretenders-dom6" className={styles.value}>a new issue</a> about it or mail me at <i>zollqir@gmail.com</i>.
 	  </p>
 	</footer>
     );
