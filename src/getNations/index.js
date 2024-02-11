@@ -24,7 +24,7 @@ function getNations() {
             });
         }
 	if ( ! nation.scales ) { nation.scales = {}; }
-	if ( ! nation.bless_bonus ) { nation.bless_bonus = {}; }
+	if ( ! nation.bless_bonus ) { nation.bless_bonus = 0; }
         nation.pretenders = pretenderIds;
         anyNationPretenders.push(...pretenderIds);
     });

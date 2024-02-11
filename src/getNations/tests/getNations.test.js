@@ -3,47 +3,50 @@ import getNations from '../';
 
 const testingData = [
     {
-        nationId: "32",
+        nationId: "6",
         // keys
         era: "EA",
         name: "Mekone",
         epithet: "Brazen Giants",
-        bless_bonus: {},
+        bless_bonus: 0,
+        scalelimits: {},
         scales: {},
         // length
         numberOfCheapGods: 4,
-        numberOfPretenders: 25,
+        numberOfPretenders: 31,
     },
     {
-        nationId: "71",
+        nationId: "67",
         // keys
         era: "MA",
         name: "Ind",
         epithet: "Magnificent Kingdom of Exalted Virtue",
-        bless_bonus: { s: 1 },
+        bless_bonus: 2,
+        scalelimits: {},
         scales: { heat: 1 },
         // length
         numberOfCheapGods: 8,
-        numberOfPretenders: 49,
+        numberOfPretenders: 59,
     },
     {
-        nationId: "72",
+        nationId: "65",
         // keys
         era: "MA",
         name: "Na'Ba",
         epithet: "Queens of the Desert",
-        bless_bonus: {},
+        bless_bonus: 0,
+        scalelimits: {},
         scales: { heat: 2 },
         // length
         numberOfCheapGods: 14,
-        numberOfPretenders: 73,
+        numberOfPretenders: 79,
     },
 ];
 
 testingData.forEach(scenario => {
     const {
         nationId,
-        name, era, epithet, bless_bonus, scales,
+        era, name, epithet, bless_bonus, scalelimits, scales,
         numberOfCheapGods, numberOfPretenders
     } = scenario;
     const nation = getNations()[nationId];

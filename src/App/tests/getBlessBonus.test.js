@@ -4,13 +4,13 @@ import getBlessBonus from '../getBlessBonus';
 const testingData = [
     // nationId, blessBonus
     // MA Ulm
-    [  49, { f: 0, a: 0, w: 0, e: 0, s: 0, d: 0, n: 0, b: 0 } ],
+    [  60, 0 ],
     // LA Mictlan
-    [  86, { f: 0, a: 0, w: 1, e: 0, s: 0, d: 0, n: 0, b: 2 } ],
+    [  111, 3 ],
     // EA Abysia
-    [  13, { f: 2, a: 0, w: 0, e: 0, s: 0, d: 0, n: 0, b: 0 } ],
+    [  16, 2 ],
     // MA Oceania
-    [  76, { f: 0, a: 0, w: 0, e: 0, s: 0, d: 0, n: 0, b: 0 } ],
+    [  87, 0 ],
 ];
 
 testingData.forEach(scenario => {
