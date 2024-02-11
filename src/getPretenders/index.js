@@ -15,7 +15,3 @@ function getPretenders() {
 }
 
 export default getPretenders;
-// const prets = getPretenders()
-// console.log(
-//   prets[2797]
-// );
