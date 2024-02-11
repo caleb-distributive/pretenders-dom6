@@ -7,8 +7,12 @@ nation_pretenders["0"] = [];
 nations["0"] = {
     "id": "0",
     "name": "Any nation",
+    "epithet": null,
     "era": null,
     "realms": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "bless_bonus": 0,
+    "scalelimits": null,
+    "scales": null,
     "cheap_gods": {},
     "pretenders": []
 }
@@ -23,6 +27,7 @@ function getNations() {
                 return !pretendersToRemove[nationId].includes(id);
             });
         }
+  if ( ! nation.scalelimits ) { nation.scalelimits = {}; }
 	if ( ! nation.scales ) { nation.scales = {}; }
 	if ( ! nation.bless_bonus ) { nation.bless_bonus = 0; }
         nation.pretenders = pretenderIds;
