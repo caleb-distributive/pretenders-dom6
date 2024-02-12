@@ -12,7 +12,7 @@ module Dom6
   ATTR_PRODUCTIVITY_LIMIT = 641
   ATTR_HEAT_LIMIT = 642
   ATTR_GROWTH_LIMIT = 643
-  ATTR_LUCK_LIMIT = 644
+  ATTR_FORTUNE_LIMIT = 644
   ATTR_MAGIC_LIMIT = 645
   ATTR_STARTING_COLD_SCALE = 705
   ATTR_STARTING_GROWTH_SCALE = 324
@@ -130,9 +130,9 @@ module Dom6
         elsif attr_i == ATTR_GROWTH_LIMIT
           nation.scalelimits ||= {}
           nation.scalelimits[:growth] = val.to_i
-        elsif attr_i == ATTR_LUCK_LIMIT
+        elsif attr_i == ATTR_FORTUNE_LIMIT
           nation.scalelimits ||= {}
-          nation.scalelimits[:luck] = val.to_i
+          nation.scalelimits[:fortune] = val.to_i
         elsif attr_i == ATTR_MAGIC_LIMIT
           nation.scalelimits ||= {}
           nation.scalelimits[:magic] = val.to_i
