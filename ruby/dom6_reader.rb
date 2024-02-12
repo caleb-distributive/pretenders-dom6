@@ -9,7 +9,7 @@ module Dom6
   
   ATTR_NO_UNDEAD_PRETENDER = 41
   ATTR_ORDER_LIMIT = 640
-  ATTR_PRODUCTION_LIMIT = 641
+  ATTR_PRODUCTIVITY_LIMIT = 641
   ATTR_HEAT_LIMIT = 642
   ATTR_GROWTH_LIMIT = 643
   ATTR_LUCK_LIMIT = 644
@@ -121,9 +121,9 @@ module Dom6
         elsif attr_i == ATTR_ORDER_LIMIT
             nation.scalelimits ||= {}
             nation.scalelimits[:order] = val.to_i
-        elsif attr_i == ATTR_PRODUCTION_LIMIT
+        elsif attr_i == ATTR_PRODUCTIVITY_LIMIT
           nation.scalelimits ||= {}
-          nation.scalelimits[:production] = val.to_i
+          nation.scalelimits[:productivity] = val.to_i
         elsif attr_i == ATTR_HEAT_LIMIT
           nation.scalelimits ||= {}
           nation.scalelimits[:heat] = val.to_i
