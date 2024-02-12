@@ -4,6 +4,10 @@ const initialState = {
         order: 0, productivity: 0, heat: 0,
         growth: 0, fortune: 0, magic: 0,
     },
+    scaleLimits: {
+      order: 0, productivity: 0, heat: 0,
+      growth: 0, fortune: 0, magic: 0
+    },
     scalesCosts: {
         order: 0, productivity: 0, heat: 0,
         growth: 0, fortune: 0, magic: 0

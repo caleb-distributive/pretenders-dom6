@@ -14,7 +14,8 @@ function reducer(state, action) {
         return {
             ...state,
             nationId: id,
-            defaultScales,
+            defaultScales: defaultScales,
+            scaleLimits: getScaleLimits(id),
             blessBonus: getBlessBonus(id),
             scalesCosts: getUpdatedScalesCosts(defaultScales, state.scales)
         };
@@ -48,13 +49,15 @@ function reducer(state, action) {
         return { ...state, d: action.payload.level };
     case actionType.CHANGE_NATURE:
         return { ...state, n: action.payload.level };
+    case actionType.CHANGE_GLAMOUR:
+        return { ...state, g: action.payload.level };
     case actionType.CHANGE_BLOOD:
         return { ...state, b: action.payload.level };
     case actionType.RESET_MAGIC_POINTS:
         return {
             ...state,
             f: 0, a: 0, w: 0, e: 0,
-            s: 0, d: 0, n: 0, b: 0,
+            s: 0, d: 0, n: 0, g: 0, b: 0,
         };
     case actionType.CHANGE_DOMINION:
         return { ...state,
@@ -142,7 +145,6 @@ function reducer(state, action) {
             scales: getDefaultScales(state.nationId),
             defaultScales: getDefaultScales(state.nationId),
             dominion: 1,
-            ...getDefaultScales(state.nationId),
         };
     case actionType.CHANGE_IMPRISONMENT:
         const level = action.payload.level;
