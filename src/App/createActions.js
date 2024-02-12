@@ -29,6 +29,9 @@ function createActions(dispatch) {
         changeNature: (level) => {
             dispatch({type: actionType.CHANGE_NATURE, payload: {level}});
         },
+        changeGlamour: (level) => {
+            dispatch({type: actionType.CHANGE_GLAMOUR, payload: {level}});
+        },
         changeBlood: (level) => {
             dispatch({type: actionType.CHANGE_BLOOD, payload: {level}});
         },
