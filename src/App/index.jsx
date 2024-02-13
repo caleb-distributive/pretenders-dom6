@@ -8,7 +8,7 @@ import Chassis from './Chassis';
 import BlessEffects from './BlessEffects';
 import Pretenders from './Pretenders';
 import Footer from './Footer';
-import DebugBar from './DebugBar';
+// import DebugBar from './DebugBar';
 
 import initialState from './initialState';
 import reducer from './reducer';
@@ -92,11 +92,11 @@ function App(props) {
     const footerComponent = (<Footer
                 version={version}
          />);
-    const debugBarComponent = (<DebugBar
-                               pointsForImprisonment={state.pointsForImprisonment}
-                               scalesCosts={state.scalesCosts}
-                               isBlessEffectsWindowOpen={state.isBlessEffectsWindowOpen}
-   />);
+  //   const debugBarComponent = (<DebugBar
+  //                              pointsForImprisonment={state.pointsForImprisonment}
+  //                              scalesCosts={state.scalesCosts}
+  //                              isBlessEffectsWindowOpen={state.isBlessEffectsWindowOpen}
+  //  />);
 
     return (
         <Layout
@@ -108,7 +108,7 @@ function App(props) {
           blessEffects = {blessEffectsComponent}
           pretenders = {pretendersComponent}
           footer = {footerComponent}
-          debugBar = {debugBarComponent}
+          debugBar = {null}
         />
     );
 }
