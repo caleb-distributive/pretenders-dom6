@@ -43,7 +43,6 @@ function Nation(props) {
 	  </div>
 	  < NationInfo
             blessBonus={blessBonus}
-            defaultScales={defaultScales}
             />
 	</div>
     );
