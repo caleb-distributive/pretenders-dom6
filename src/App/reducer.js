@@ -3,6 +3,7 @@ import scaleCost from './scaleCost';
 import heatCost from './heatCost';
 import getUpdatedScalesCosts from './getUpdatedScalesCosts';
 import getDefaultScales from './getDefaultScales';
+import getScaleLimits from './getScaleLimits';
 import getBlessBonus from './getBlessBonus';
 import actionType from './actionType';
 
@@ -15,7 +16,7 @@ function reducer(state, action) {
             ...state,
             nationId: id,
             defaultScales: defaultScales,
-            scaleLimits: getScaleLimits(id),
+            scalelimits: getScaleLimits(id),
             blessBonus: getBlessBonus(id),
             scalesCosts: getUpdatedScalesCosts(defaultScales, state.scales)
         };

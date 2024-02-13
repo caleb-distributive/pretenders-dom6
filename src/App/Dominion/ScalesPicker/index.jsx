@@ -6,8 +6,6 @@ import ScalePicker from './ScalePicker';
 
 function ScalesPicker(props) {
     const {
-        dominion,
-        scales,
         changeDominion,
         changeOrder,
         changeProductivity,
@@ -15,6 +13,9 @@ function ScalesPicker(props) {
         changeGrowth,
         changeFortune,
         changeMagic,
+        dominion,
+        scalelimits,
+        scales,
     } = props;
 
     const {
@@ -26,26 +27,9 @@ function ScalesPicker(props) {
         magic
     } = scales;
 
-    const handleChange = (event) => {
+    const handleDominion = (event) => {
         const level = parseInt(event.target.value, 10);
-        const scale = event.target.name;
-        switch (scale) {
-        case "dominion": changeDominion(level);
-            break;
-        case "order": changeOrder(level);
-            break;
-        case "productivity": changeProductivity(level);
-            break;
-        case "heat": changeHeat(level);
-            break;
-        case "growth": changeGrowth(level);
-            break;
-        case "fortune": changeFortune(level);
-            break;
-        case "magic": changeMagic(level);
-            break;
-        default: break;
-        }
+        changeDominion(level);
     };
 
     return (
@@ -56,7 +40,7 @@ function ScalesPicker(props) {
 		                 htmlFor="dominion-picker__input">
 	              Dom
 	            </label>
-              <input type="number" name="dominion" onChange={handleChange}
+              <input type="number" name="dominion" onChange={handleDominion}
 		                 min="1" max="10" value={dominion} id="dominion-picker__input"
 		                 className={styles.input_dominion} />
 	          </div>
@@ -67,31 +51,37 @@ function ScalesPicker(props) {
             <ScalePicker scaleValue={order}
                          label="Ord"
                          id="order-picker__input"
+                         scalelimit={scalelimits.order}
                          changeScale={changeOrder}/>
 
             <ScalePicker scaleValue={productivity}
                          label="Prd"
                          id="productivity-picker__input"
+                         scalelimit={scalelimits.productivity}
                          changeScale={changeProductivity}/>
 
             <ScalePicker scaleValue={heat}
                          label="Heat"
                          id="heat-picker__input"
+                         scalelimit={scalelimits.heat}
                          changeScale={changeHeat}/>
 
             <ScalePicker scaleValue={growth}
                          label="Grw"
                          id="growth-picker__input"
+                         scalelimit={scalelimits.growth}
                          changeScale={changeGrowth}/>
 
             <ScalePicker scaleValue={fortune}
                          label="Frt"
                          id="fortune-picker__input"
+                         scalelimit={scalelimits.fortune}
                          changeScale={changeFortune}/>
 
             <ScalePicker scaleValue={magic}
-                         label="Mgt"
+                         label="Mgc"
                          id="magic-picker__input"
+                         scalelimit={scalelimits.magic}
                          changeScale={changeMagic}/>
           </div>
         </div>

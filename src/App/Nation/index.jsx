@@ -6,7 +6,7 @@ import styles from './Nation.module.scss';
 
 function Nation(props) {
     const {
-        blessBonus, defaultScales,
+        blessBonus,
         nations, nationId, changeNation,
         resetAllPoints
     } = props;

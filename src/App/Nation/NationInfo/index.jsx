@@ -10,7 +10,7 @@ function NationInfo(props) {
     return (
 	<div className={styles.container}>
           <p>
-	    {blessBonusLabel ? "Nation bless bonuses:" : ""}
+	    {blessBonusLabel ? "Nation bless bonus:" : ""}
 	    <span className={styles.blesses}>{blessBonusLabel}</span>
           </p>
 	</div>

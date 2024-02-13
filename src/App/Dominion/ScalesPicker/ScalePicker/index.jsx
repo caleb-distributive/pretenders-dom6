@@ -9,22 +9,37 @@ function ScalePicker(props) {
         scaleValue,
         id,
         label,
-        changeScale,
-        increaseScale,
-        decreaseScale,
+        scalelimit,
+        changeScale
     } = props;
 
     const handleChange = (event) => {
-        const level = parseInt(event.target.value, 10);
-        changeScale(clamp(-3, 3, level));
+      console.log(`change scalelimit: ${scalelimit}`);
+      const level = parseInt(event.target.value, 10);
+
+      changeScale(clamp(
+        -2+scalelimit-(scalelimit>=0),
+          2+scalelimit+(scalelimit<=0),
+          level
+      ));
     };
 
     const handleIncrease = (event) => {
-        changeScale(clamp(-3, 3, scaleValue + 1));
+      console.log(`increase scalelimit: ${scalelimit}`);
+      changeScale(clamp(
+        -2+scalelimit-(scalelimit>=0), 
+          2+scalelimit+(scalelimit<=0), 
+          scaleValue + 1
+      ));
     };
 
     const handleDecrease = (event) => {
-        changeScale(clamp(-3, 3, scaleValue - 1));
+      console.log(`decrease scalelimit: ${scalelimit}`);
+      changeScale(clamp(
+        -2+scalelimit-(scalelimit>=0), 
+          2+scalelimit+(scalelimit<=0), 
+          scaleValue - 1
+      ));
     };
 
     return (
@@ -34,8 +49,8 @@ function ScalePicker(props) {
 		             htmlFor={id}>
 	          {label}
 	        </label>
-	        <input type="number" name="order" onChange={handleChange}
-		             min="-3" max="3" value={scaleValue} id={id}
+	        <input type="number" name={label} onChange={handleChange}
+		             min={String(-2+scalelimit-(scalelimit>=0))} max={String(2+scalelimit+(scalelimit<=0))} value={scaleValue} id={id}
 		             className={styles.input_scale} />
           <button
 	          type="button"

@@ -29,7 +29,6 @@ function App(props) {
                                resetAllPoints={action.resetAllPoints}
                                nations={nations}
                                blessBonus={state.blessBonus}
-                               defaultScales={state.defaultScales}
                              />);
     const magicComponent = (<Magic
                          resetMagicPoints={action.resetMagicPoints}
@@ -48,24 +47,13 @@ function App(props) {
                                  defaultScales={state.defaultScales}
                                  changeDominion={action.changeDominion}
                                  changeOrder={action.changeOrder}
-                                 increaseOrder={action.increaseOrder}
-                                 decreaseOrder={action.decreaseOrder}
                                  changeProductivity={action.changeProductivity}
-                                 increaseProductivity={action.increaseProductivity}
-                                 decreaseProductivity={action.decreaseProductivity}
                                  changeHeat={action.changeHeat}
-                                 increaseHeat={action.increaseHeat}
-                                 decreseHeat={action.decreseHeat}
                                  changeGrowth={action.changeGrowth}
-                                 increaseGrowth={action.increaseGrowth}
-                                 decreaseGrowth={action.decreaseGrowth}
                                  changeFortune={action.changeFortune}
-                                 increaseFortune={action.increaseFortune}
-                                 decreaseFortune={action.decreaseFortune}
                                  changeMagic={action.changeMagic}
-                                 increaseMagic={action.increaseMagic}
-                                 decreaseMagic={action.decreaseMagic}
                                  dominion={state.dominion}
+                                 scalelimits={state.scalelimits}
 	                               scales={state.scales}
                  />);
     const imprisonmentComponent = (<Imprisonment

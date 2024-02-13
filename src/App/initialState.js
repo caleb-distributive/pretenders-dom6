@@ -4,7 +4,7 @@ const initialState = {
         order: 0, productivity: 0, heat: 0,
         growth: 0, fortune: 0, magic: 0,
     },
-    scaleLimits: {
+    scalelimits: {
       order: 0, productivity: 0, heat: 0,
       growth: 0, fortune: 0, magic: 0
     },
