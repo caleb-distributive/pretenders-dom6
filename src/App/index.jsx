@@ -40,6 +40,7 @@ function App(props) {
                          s={state.s} changeAstral={action.changeAstral}
                          d={state.d} changeDeath={action.changeDeath}
                          n={state.n} changeNature={action.changeNature}
+                         g={state.g} changeGlamour={action.changeGlamour}
                          b={state.b} changeBlood={action.changeBlood}
                   />);
     const dominionComponent = (<Dominion

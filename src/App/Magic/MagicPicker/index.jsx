@@ -11,6 +11,7 @@ function MagicPicker(props) {
         s, changeAstral,
         d, changeDeath,
         n, changeNature,
+        g, changeGlamour,
         b, changeBlood,
     } = props;
 
@@ -25,6 +26,7 @@ function MagicPicker(props) {
         case "s": changeAstral(level); break;
         case "d": changeDeath(level);  break;
         case "n": changeNature(level); break;
+        case "g": changeGlamour(level);break;
         case "b": changeBlood(level);  break;
         default: break;    
         }
@@ -91,6 +93,14 @@ function MagicPicker(props) {
                      value={n}
 		     id="nature-picker__input" className={styles.input} />
 	    </div>
+      <div className={styles.picker}>
+        <label className={styles.label_glamour} htmlFor="glamour-picker__input">
+    G
+        </label>
+        <input type="number" name="g" onChange={handleChange} min="0" max="10"
+                     value={g}
+         id="glamour-picker__input" className={styles.input} />
+      </div>
 	    <div className={styles.picker}>
 	      <label className={styles.label_blood} htmlFor="blood-picker__input">
 		B

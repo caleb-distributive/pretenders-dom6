@@ -56,6 +56,10 @@
     @extend .label;
     background-color: #3d7523;
 }
+.label_glamour {
+    @extend .label;
+    background-color: #d767c5;
+}
 .label_blood {
     @extend .label;
     background-color: #7d1b16;

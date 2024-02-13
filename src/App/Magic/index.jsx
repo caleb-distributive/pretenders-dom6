@@ -13,6 +13,7 @@ function Magic(props) {
         s, changeAstral,
         d, changeDeath,
         n, changeNature,
+        g, changeGlamour,
         b, changeBlood,
     } = props;
 
@@ -26,6 +27,7 @@ function Magic(props) {
             s={s} changeAstral={changeAstral}
             d={d} changeDeath={changeDeath}
             n={n} changeNature={changeNature}
+            g={g} changeGlamour={changeGlamour}
             b={b} changeBlood={changeBlood}
             />
           <ResetMagicButton
