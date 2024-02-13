@@ -69,6 +69,12 @@
     background-color: #3d7523;
 }
 
+.table_cell_glamour {
+    @extend .table_cell;
+    background-image: none;
+    background-color: #d767c5;
+}
+
 .table_cell_blood {
     @extend .table_cell;
     background-image: none;

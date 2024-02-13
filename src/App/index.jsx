@@ -77,15 +77,17 @@ function App(props) {
                                        />);
     const pretendersComponent = (<Pretenders
                                    f={state.f} a={state.a} w={state.w} e={state.e}
-                                   s={state.s} d={state.d} n={state.n} b={state.b}
+                                   s={state.s} d={state.d} n={state.n} g={state.g} b={state.b}
                                    nations={nations}
                                    nationId={state.nationId}
-                                   dominion={state.dominion}
                                    pretenders={pretenders}
-                                   pointsForImprisonment={state.pointsForImprisonment}
+                                   dominion={state.dominion}
                                    imprisonment={state.imprisonment}
+                                   pointsForImprisonment={state.pointsForImprisonment}
                                    chassis={state.chassis}
                                    scalesCosts={state.scalesCosts}
+                                   scales={state.scales}
+                                   scalelimits={state.scalelimits}
                                  />);
     const footerComponent = (<Footer
                 version={version}

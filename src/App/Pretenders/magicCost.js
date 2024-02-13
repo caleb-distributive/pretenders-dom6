@@ -1,31 +1,32 @@
-function magicPathCost(newPathCost, baseLevel, wantedLevel) {
-  if (baseLevel === null || baseLevel === undefined || baseLevel === "") {
-    baseLevel = 0;
+function magicPathCost(basePath, newPathCost, path) {
+  if (!basePath) {
+    basePath = 0;
   }
-  if (wantedLevel <= baseLevel) {
+  
+  if (path <= basePath) {
     return 0;
   }
-  let difference = wantedLevel - baseLevel;
-  let cost = 0;
-  for (let i = 1; i <= difference; i++) {
-    cost = cost + i * 8;
+
+  if (basePath !== 0) {
+    newPathCost = 8;
+    path = path - basePath;
   }
-  if (baseLevel === 0) {
-    cost = cost - 8 + newPathCost;
-  }
-  return cost;
+
+  return newPathCost + 8*(0.5*(path*path+path)-1);
+    
 }
 
-export function magicCost(pretenderStartLevels, pretenderNewPathCost, wantedLevels) {
+export function magicCost(basePaths, newPathCost, paths) {
   return (
-      magicPathCost(pretenderNewPathCost, pretenderStartLevels.f, wantedLevels.f)
-    + magicPathCost(pretenderNewPathCost, pretenderStartLevels.a, wantedLevels.a)
-    + magicPathCost(pretenderNewPathCost, pretenderStartLevels.w, wantedLevels.w)
-    + magicPathCost(pretenderNewPathCost, pretenderStartLevels.e, wantedLevels.e)
-    + magicPathCost(pretenderNewPathCost, pretenderStartLevels.s, wantedLevels.s)
-    + magicPathCost(pretenderNewPathCost, pretenderStartLevels.d, wantedLevels.d)
-    + magicPathCost(pretenderNewPathCost, pretenderStartLevels.n, wantedLevels.n)
-    + magicPathCost(pretenderNewPathCost, pretenderStartLevels.b, wantedLevels.b)
+      magicPathCost(basePaths.f, newPathCost, paths.f)
+    + magicPathCost(basePaths.a, newPathCost, paths.a)
+    + magicPathCost(basePaths.w, newPathCost, paths.w)
+    + magicPathCost(basePaths.e, newPathCost, paths.e)
+    + magicPathCost(basePaths.s, newPathCost, paths.s)
+    + magicPathCost(basePaths.d, newPathCost, paths.d)
+    + magicPathCost(basePaths.n, newPathCost, paths.n)
+    + magicPathCost(basePaths.g, newPathCost, paths.g)
+    + magicPathCost(basePaths.b, newPathCost, paths.b)
   );
 }
 
