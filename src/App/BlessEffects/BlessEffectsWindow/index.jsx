@@ -5,14 +5,14 @@ import styles from './BlessEffectsWindow.module.scss';
 import BlessEffectsRows from '../BlessEffectsRows';
 
 function BlessEffectsWindow(props) {
-    const {onClose, isOpen, blessEffects} = props;
+    const {isOpen, onClose, blessEffects} = props;
 
     const close = (e) => {
         e.preventDefault()
         if (onClose) {
             onClose()
         }
-    }
+    };
 
     if (isOpen === false) {
         return null;
@@ -28,11 +28,11 @@ function BlessEffectsWindow(props) {
               <table>
                 <thead id="bless_effects_window_table__head">
                   <tr className={styles.table_row}>
-                    <th className={styles.table_header}>Bless Points</th>
+                    <th className={styles.table_header}>Paths Required</th>
                     <th className={styles.table_header}>Scales</th>
                     <th className={styles.table_header}>Name</th>
                     <th className={styles.table_header}>Short description</th>
-                    <th className={styles.table_header}>Incarnation</th>
+                    <th className={styles.table_header}>Incarnate</th>
                   </tr>
                 </thead>
                 <BlessEffectsRows effects={blessEffects} />

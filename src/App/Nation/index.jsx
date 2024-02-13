@@ -1,12 +1,10 @@
 import React from 'react';
-import NationInfo from './NationInfo';
 import ResetAllButton from './ResetAllButton';
 
 import styles from './Nation.module.scss';
 
 function Nation(props) {
     const {
-        blessBonus,
         nations, nationId, changeNation,
         resetAllPoints
     } = props;
@@ -41,9 +39,6 @@ function Nation(props) {
               resetAllPoints={resetAllPoints}
               />
 	  </div>
-	  < NationInfo
-            blessBonus={blessBonus}
-            />
 	</div>
     );
 }

@@ -13,10 +13,12 @@ function BlessEffectsRows(props) {
               <BlessPointsCell effect={effect}/>
               <td className={styles.scales}>
 		{
-		    (scales.heat ? ("Heat: " + scales.heat + " "      ) : "")
-			+ (scales.growth  ? ("Growth: " + scales.growth + " "  ) : "")
-			+ (scales.fortune ? ("Fortune: " + scales.fortune + " " ) : "")
-			+ (scales.magic   ? ("Magic: " + scales.magic + " " ) : "")
+        (scales?.order        ? (`Order: ${       scales.order        } `) : "")
+      + (scales?.productivity ? (`Productivity: ${scales.productivity } `) : "")
+		  + (scales?.heat         ? (`Heat: ${        scales.heat         } `) : "")
+			+ (scales?.growth       ? (`Growth: ${      scales.growth       } `) : "")
+			+ (scales?.fortune      ? (`Fortune: ${     scales.fortune      } `) : "")
+			+ (scales?.magic        ? (`Magic: ${       scales.magic        } `) : "")
 		}
               </td>
               <td className={styles.name}>{name}</td>

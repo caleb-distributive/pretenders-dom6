@@ -12,13 +12,15 @@ import styles from './BlessEffects.module.scss';
 
 function BlessEffects(props) {
     const {
-        blessBonus,
-        showBlessList, closeBlessList,
-        isBlessEffectsWindowOpen,
-        f,a,w,e,s,d,n,b,
+      showBlessList,
+      closeBlessList,
+      blessBonus,
+      isBlessEffectsWindowOpen,
+      f,a,w,e,s,d,n,g,b,
+      scales
     } = props;
-    const path = {f,a,w,e,s,d,n,b}
-    const blessPoints = totalBlessPoints(path, blessBonus);
+    const paths = {f,a,w,e,s,d,n,g,b};
+    const blessPoints = totalBlessPoints(paths, blessBonus);
     const blessEffects = getBlessEffects();
 
     return(
@@ -29,26 +31,9 @@ function BlessEffects(props) {
 	    blessEffects={blessEffects}
 	    />
 	  <NationBlessBonusInfo
-	    f={blessBonus.f}
-	    a={blessBonus.a}
-	    w={blessBonus.w}
-	    e={blessBonus.e}
-	    s={blessBonus.s}
-	    d={blessBonus.d}
-	    n={blessBonus.n}
-	    b={blessBonus.b}
+      blessBonus={blessBonus}
+      blessPoints={blessPoints}
 	    />
-	  
-	  <div className={styles.section}>
-	    <div className={styles.label_fire}>F{blessPoints.f}</div>
-	    <div className={styles.label_air}>A{blessPoints.a}</div>
-	    <div className={styles.label_water}>W{blessPoints.w}</div>
-	    <div className={styles.label_earth}>E{blessPoints.e}</div>
-	    <div className={styles.label_astral}>S{blessPoints.s}</div>
-	    <div className={styles.label_death}>D{blessPoints.d}</div>
-	    <div className={styles.label_nature}>N{blessPoints.n}</div>
-	    <div className={styles.label_blood}>B{blessPoints.b}</div>
-	  </div>
 	  
 	  <p>
 	    Available Blesses
@@ -68,7 +53,7 @@ function BlessEffects(props) {
 		  <th className={styles.table_header}>Incarnate only?</th>
 		</tr>
 	      </thead>
-	      <BlessEffectsRows effects={filterBlessEffects(blessEffects, blessPoints)} />
+	      <BlessEffectsRows effects={filterBlessEffects(blessEffects, paths, scales)} />
 	    </table>
 	  </div>
 	  

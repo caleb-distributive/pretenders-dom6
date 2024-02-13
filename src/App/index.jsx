@@ -28,7 +28,6 @@ function App(props) {
                                changeNation={action.changeNation}
                                resetAllPoints={action.resetAllPoints}
                                nations={nations}
-                               blessBonus={state.blessBonus}
                              />);
     const magicComponent = (<Magic
                          resetMagicPoints={action.resetMagicPoints}
@@ -73,7 +72,8 @@ function App(props) {
                                    blessBonus={state.blessBonus}
                                    isBlessEffectsWindowOpen={state.isBlessEffectsWindowOpen}
                                    f={state.f} a={state.a} w={state.w} e={state.e}
-                                   s={state.s} d={state.d} n={state.n} b={state.b}
+                                   s={state.s} d={state.d} n={state.n} g={state.g} b={state.b}
+                                   scales={state.scales}
                                        />);
     const pretendersComponent = (<Pretenders
                                    f={state.f} a={state.a} w={state.w} e={state.e}

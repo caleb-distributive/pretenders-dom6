@@ -12,56 +12,63 @@
     background: linear-gradient(#3f4142, #3d3940);
 }
 
-.bless_points_fire {
+.bless_points_f {
     @extend .bless_points;
     background-image: none;
     background-color: #b03523;
     color: #f6f6f6;
 }
 
-.bless_points_air {
+.bless_points_a {
     @extend .bless_points;
     background-image: none;
     background-color: #a38e96;
     color: #f6f6f6;
 }
 
-.bless_points_water {
+.bless_points_w {
     @extend .bless_points;
     background-image: none;
     background-color: #331d98;
     color: #f6f6f6;
 }
 
-.bless_points_earth {
+.bless_points_e {
     @extend .bless_points;
     background-image: none;
     background-color: #b08130;
     color: #f6f6f6;
 }
 
-.bless_points_astral {
+.bless_points_s {
     @extend .bless_points;
     background-image: none;
     background-color: #709b96;
     color: #f6f6f6;
 }
 
-.bless_points_death {
+.bless_points_d {
     @extend .bless_points;
     background-image: none;
     background-color: #701b63;
     color: #f6f6f6;
 }
 
-.bless_points_nature {
+.bless_points_n {
     @extend .bless_points;
     background-image: none;
     background-color: #3d7523;
     color: #f6f6f6;
 }
 
-.bless_points_blood {
+.bless_points_g {
+  @extend .bless_points;
+  background-image: none;
+  background-color: #d767c5;
+  color: #f6f6f6;
+}
+
+.bless_points_b {
     @extend .bless_points;
     background-image: none;
     background-color: #7d1b16;

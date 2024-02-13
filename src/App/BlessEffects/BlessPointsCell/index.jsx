@@ -3,48 +3,52 @@ import React from 'react';
 import styles from './BlessPointsCell.module.scss';
 
 function BlessPointsCell(props) {
-    const { effect } = props;
-    let points = [];
-    if (effect.f) {
-	points.push(<span className={styles.bless_points_fire}>{effect.f}</span>)
-    }
-    if (effect.a) {
-	points.push(<span className={styles.bless_points_air}>{effect.a}</span>)
-    }
-    if (effect.w) {
-	points.push(<span className={styles.bless_points_water}>{effect.w}</span>)
-    }
-    if (effect.e) {
-	points.push(<span className={styles.bless_points_earth}>{effect.e}</span>)
-    }
-    if (effect.s) {
-	points.push(<span className={styles.bless_points_astral}>{effect.s}</span>)
-    }
-    if (effect.d) {
-	points.push(<span className={styles.bless_points_death}>{effect.d}</span>)
-    }
-    if (effect.n) {
-	points.push(<span className={styles.bless_points_nature}>{effect.n}</span>)
-    }
-    if (effect.b) {
-	points.push(<span className={styles.bless_points_blood}>{effect.b}</span>)
-    }
-    // const howMany = points.length;
-    points = points.map((bless, index) => {
-	return (
+    const paths = {
+      f: props.effect.f,
+      a: props.effect.a,
+      w: props.effect.w,
+      e: props.effect.e,
+      s: props.effect.s,
+      d: props.effect.d,
+      n: props.effect.n,
+      g: props.effect.g,
+      b: props.effect.b
+    };
 
-	    <span key={index}>{!!index && ", "}{bless}</span>
-	);
-	// if (index === howMany - 1) {
-	// return (<span key={index}>{bless}</span>);
-	// }
-	// else {
-	// return (<span key={index}>{bless} + ", "</span>);
-	// }
-    });
+    const largest = {
+      path: null,
+      value: 0
+    };
+    const secondLargest = {
+      path: null,
+      value: 0
+    };
+
+    for (const [path, value] of Object.entries(paths)) {
+      if (value > 0 && value > largest.value) {
+        secondLargest.path  = largest.path;
+        secondLargest.value = largest.value;
+        largest.path        = path;
+        largest.value       = value;
+      }
+      else if (value > 0 && value > secondLargest.value) {
+        secondLargest.path  = path;
+        secondLargest.value = value;
+      }
+    }
+    
+    let largestPoints = (<span className={styles[`bless_points_${largest.path}`]}>{largest.value}</span>);
+    let secondLargestPoints = null;
+    if (secondLargest.value)
+      secondLargestPoints = (<span className={styles[`bless_points_${secondLargest.path}`]}>{secondLargest.value}</span>)
+
     return (
 	<td className={styles.cell}>
-	  {points}
+    <span key={0}>{largestPoints}</span>
+    {secondLargestPoints ? 
+    <span key={1}>{", "}{secondLargestPoints}</span>
+    : null
+    }
 	</td>
     );
 }
