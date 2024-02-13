@@ -14,7 +14,6 @@ function ScalePicker(props) {
     } = props;
 
     const handleChange = (event) => {
-      console.log(`change scalelimit: ${scalelimit}`);
       const level = parseInt(event.target.value, 10);
 
       changeScale(clamp(
@@ -25,7 +24,6 @@ function ScalePicker(props) {
     };
 
     const handleIncrease = (event) => {
-      console.log(`increase scalelimit: ${scalelimit}`);
       changeScale(clamp(
         -2+scalelimit-(scalelimit>=0), 
           2+scalelimit+(scalelimit<=0), 
@@ -34,7 +32,6 @@ function ScalePicker(props) {
     };
 
     const handleDecrease = (event) => {
-      console.log(`decrease scalelimit: ${scalelimit}`);
       changeScale(clamp(
         -2+scalelimit-(scalelimit>=0), 
           2+scalelimit+(scalelimit<=0), 
