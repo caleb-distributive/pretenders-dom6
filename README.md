@@ -1,6 +1,6 @@
 # Pretenders Calculator for Dominions 6
 
-Deployed application: TODO
+Deployed application: https://caleb-distributive.github.io/pretenders-dom6/
 
 ## Description
 
