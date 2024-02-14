@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/pretenders-dom6/static/css/main.abe8def1.chunk.css",
-    "main.js": "/pretenders-dom6/static/js/main.5be1fc94.chunk.js",
-    "main.js.map": "/pretenders-dom6/static/js/main.5be1fc94.chunk.js.map",
+    "main.js": "/pretenders-dom6/static/js/main.ce5aef13.chunk.js",
+    "main.js.map": "/pretenders-dom6/static/js/main.ce5aef13.chunk.js.map",
     "runtime-main.js": "/pretenders-dom6/static/js/runtime-main.85508850.js",
     "runtime-main.js.map": "/pretenders-dom6/static/js/runtime-main.85508850.js.map",
     "static/js/2.13550e04.chunk.js": "/pretenders-dom6/static/js/2.13550e04.chunk.js",
     "static/js/2.13550e04.chunk.js.map": "/pretenders-dom6/static/js/2.13550e04.chunk.js.map",
     "index.html": "/pretenders-dom6/index.html",
-    "precache-manifest.ff7cb518c5050e0d9799a3bfd858fa06.js": "/pretenders-dom6/precache-manifest.ff7cb518c5050e0d9799a3bfd858fa06.js",
+    "precache-manifest.8118169bac5a10c1fb4121c33651ef79.js": "/pretenders-dom6/precache-manifest.8118169bac5a10c1fb4121c33651ef79.js",
     "service-worker.js": "/pretenders-dom6/service-worker.js",
     "static/css/main.abe8def1.chunk.css.map": "/pretenders-dom6/static/css/main.abe8def1.chunk.css.map",
     "static/js/2.13550e04.chunk.js.LICENSE.txt": "/pretenders-dom6/static/js/2.13550e04.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.85508850.js",
     "static/js/2.13550e04.chunk.js",
     "static/css/main.abe8def1.chunk.css",
-    "static/js/main.5be1fc94.chunk.js"
+    "static/js/main.ce5aef13.chunk.js"
   ]
 }
