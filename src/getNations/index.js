@@ -1,4 +1,5 @@
 import pretendersToRemove from './pretendersToRemove';
+import nationScalesToFix from './nationScalesToFix';
 const nation_pretenders = require('../data/nations_pretenders.json');
 const nations = require('../data/nations.json');
 
@@ -18,25 +19,29 @@ nations["0"] = {
 }
 
 function getNations() {
-    const anyNationPretenders = [];
-    Object.keys(nations).forEach(nationId => {
-	let nation = nations[nationId];
-        let pretenderIds = nation_pretenders[nationId];
-        if (pretendersToRemove[nationId]) {
-            pretenderIds = pretenderIds.filter(id => {
-                return !pretendersToRemove[nationId].includes(id);
-            });
-        }
-  if ( ! nation.scalelimits ) { nation.scalelimits = {}; }
-	if ( ! nation.scales ) { nation.scales = {}; }
-	if ( ! nation.bless_bonus ) { nation.bless_bonus = 0; }
-        nation.pretenders = pretenderIds;
-        anyNationPretenders.push(...pretenderIds);
-    });
+  const anyNationPretenders = [];
+  Object.keys(nations).forEach(nationId => {
+    let nation = nations[nationId];
+    let pretenderIds = nation_pretenders[nationId];
+    if (pretendersToRemove[nationId]) {
+      pretenderIds = pretenderIds.filter(id => {
+        return !pretendersToRemove[nationId].includes(id);});
+    }
+    if ( ! nation.scalelimits ) { nation.scalelimits = {}; }
+    if ( ! nation.scales ) { nation.scales = {}; }
+    if ( ! nation.bless_bonus ) { nation.bless_bonus = 0; }
+    nation.pretenders = pretenderIds;
+    anyNationPretenders.push(...pretenderIds);
+    if ( nationScalesToFix[nationId]) {
+      for (const [scaleName, value] of Object.entries(nationScalesToFix[nationId])) {
+        nation.scales[scaleName] = value;
+      }
+    }
+  });
 
-    nations["0"].pretenders = [...new Set(anyNationPretenders)];
+  nations["0"].pretenders = [...new Set(anyNationPretenders)];
 
-    return nations;
+  return nations;
 };
 
 export default getNations;
