@@ -88,6 +88,10 @@ function App(props) {
                                    scalesCosts={state.scalesCosts}
                                    scales={state.scales}
                                    scalelimits={state.scalelimits}
+                                   blessBonus={state.blessBonus}
+                                   openPretenderOptimizer={action.openPretenderOptimizer}
+                                   closePretenderOptimizer={action.closePretenderOptimizer}
+                                   isPretenderOptimizerOpen={state.isPretenderOptimizerOpen}
                                  />);
     const footerComponent = (<Footer
                 version={version}

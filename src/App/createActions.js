@@ -87,6 +87,12 @@ function createActions(dispatch) {
         closeBlessList: ()   => {
             dispatch({type: actionType.CLOSE_BLESS_LIST});
         },
+        openPretenderOptimizer: () => {
+            dispatch({type: actionType.OPEN_PRETENDER_OPTIMIZER});
+        },
+        closePretenderOptimizer: () => {
+            dispatch({type: actionType.CLOSE_PRETENDER_OPTIMIZER});
+        }
     }
 }
 

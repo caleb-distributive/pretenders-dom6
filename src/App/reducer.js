@@ -198,6 +198,19 @@ function reducer(state, action) {
             ...state,
             isBlessEffectsWindowOpen: false
         };
+    
+    case actionType.OPEN_PRETENDER_OPTIMIZER:
+        return {
+          ...state,
+          isPretenderOptimizerOpen: true
+        };
+    
+    case actionType.CLOSE_PRETENDER_OPTIMIZER:
+        return {
+          ...state,
+          isPretenderOptimizerOpen: false
+        };
+
     default:
         return state;
     }

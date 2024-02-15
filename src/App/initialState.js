@@ -29,6 +29,7 @@ const initialState = {
     },
     pointsForImprisonment: 0,
     isBlessEffectsWindowOpen: false,
+    isPretenderOptimizerOpen: false,
 };
 
 export default initialState;

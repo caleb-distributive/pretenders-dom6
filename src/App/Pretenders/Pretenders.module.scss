@@ -24,59 +24,70 @@
     font-size: 8px;
 }
 
-.table_cell_fire {
+.table_cell_f {
     @extend .table_cell;
     background-image: none;
     background-color: #b03523;
 }
 
-.table_cell_air {
+.table_cell_a {
     @extend .table_cell;
     background-image: none;
     background-color: #a38e96;
     color: #f6f6f6;
 }
 
-.table_cell_water {
+.table_cell_w {
     @extend .table_cell;
     background-image: none;
     background-color: #331d98;
 }
 
-.table_cell_earth {
+.table_cell_e {
     @extend .table_cell;
     background-image: none;
     background-color: #b08130;
     color: #f6f6f6;
 }
 
-.table_cell_astral {
+.table_cell_s {
     @extend .table_cell;
     background-image: none;
     background-color: #709b96;
     color: #f6f6f6;
 }
 
-.table_cell_death {
+.table_cell_d {
     @extend .table_cell;
     background-image: none;
     background-color: #701b63;
 }
 
-.table_cell_nature {
+.table_cell_n {
     @extend .table_cell;
     background-image: none;
     background-color: #3d7523;
 }
 
-.table_cell_glamour {
+.table_cell_g {
     @extend .table_cell;
     background-image: none;
     background-color: #d767c5;
 }
 
-.table_cell_blood {
+.table_cell_b {
     @extend .table_cell;
     background-image: none;
     background-color: #7d1b16;
+}
+
+.table_cell_new {
+    @extend .table_cell;
+    background-image: none;
+    background-color: #d8d004;
+    color: #000000;
+}
+
+.contents {
+  text-align: center;
 }
