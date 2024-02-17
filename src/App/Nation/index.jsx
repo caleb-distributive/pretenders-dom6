@@ -1,6 +1,6 @@
 import React from 'react';
 import ResetAllButton from './ResetAllButton';
-
+import Select from 'react-select';
 import styles from './Nation.module.scss';
 
 function Nation(props) {
@@ -9,32 +9,45 @@ function Nation(props) {
         resetAllPoints
     } = props;
 
-    const handleSelection = (event) => {
-        changeNation(event.target.value);
+    const handleSelection = (selectedNation) => {
+      setSelectedNation(selectedNation);
+      changeNation(selectedNation.value);
     }
-
-    const nationOptions = Object.keys(nations).map(nId => {
-	return (
-	    <option
-              key={nId}
-              value={nId}
-              className={styles["option_era_" + nations[nId].era]}
-              >
-	      {nations[nId].era} {nations[nId].name}: {nations[nId].epithet}
-	    </option>
-	);
+  
+  const options = Object.keys(nations).map(nId => {
+    return ({
+      value: nId,
+      label: `${nations[nId].era ? nations[nId].era : ""} ${nations[nId].name}: ${nations[nId].epithet ? nations[nId].epithet : ""}`
     });
+  });
+
+  const [selectedNation, setSelectedNation ] = React.useState(options[0])
 
     return (
 	<div className={styles.container}>
 	  <div className={styles.body}>
-	    <select
-	      name="nationId" value={nationId}
-	      onChange={handleSelection}
-	      id="nation-picker__select"
-	      >
-	      {nationOptions}
-	    </select>
+      <Select styles={{
+        control: (baseStyles) => ({
+          ...baseStyles,
+          fontSize: "13px",
+          width: "max-content",
+          minWidth:"300px"
+        }),
+        option: (baseStyles) => ({
+          ...baseStyles,
+          color: 'black',
+          fontSize: "13px"
+        }),
+        menu: (baseStyles) => ({
+          ...baseStyles,
+          width: "max-content",
+          minWidth:"100%"
+        })
+      }}
+        options={options}
+        value={selectedNation}
+        onChange={handleSelection}
+      />
 	    <ResetAllButton
               resetAllPoints={resetAllPoints}
               />
