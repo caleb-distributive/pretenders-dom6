@@ -4,15 +4,15 @@ import Select from 'react-select';
 import styles from './Nation.module.scss';
 
 function Nation(props) {
-    const {
-        nations, nationId, changeNation,
-        resetAllPoints
-    } = props;
+  const {
+      nations, changeNation,
+      resetAllPoints
+  } = props;
 
-    const handleSelection = (selectedNation) => {
-      setSelectedNation(selectedNation);
-      changeNation(selectedNation.value);
-    }
+  const handleSelection = (selectedNation) => {
+    setSelectedNation(selectedNation);
+    changeNation(selectedNation.value);
+  }
   
   const options = Object.keys(nations).map(nId => {
     return ({
@@ -21,39 +21,39 @@ function Nation(props) {
     });
   });
 
-  const [selectedNation, setSelectedNation ] = React.useState(options[0])
+  const [selectedNation, setSelectedNation ] = React.useState(options[0]);
 
-    return (
-	<div className={styles.container}>
-	  <div className={styles.body}>
-      <Select styles={{
-        control: (baseStyles) => ({
-          ...baseStyles,
-          fontSize: "13px",
-          width: "max-content",
-          minWidth:"300px"
-        }),
-        option: (baseStyles) => ({
-          ...baseStyles,
-          color: 'black',
-          fontSize: "13px"
-        }),
-        menu: (baseStyles) => ({
-          ...baseStyles,
-          width: "max-content",
-          minWidth:"100%"
-        })
-      }}
-        options={options}
-        value={selectedNation}
-        onChange={handleSelection}
-      />
-	    <ResetAllButton
-              resetAllPoints={resetAllPoints}
-              />
-	  </div>
-	</div>
-    );
+  return (
+    <div className={styles.container}>
+      <div className={styles.body}>
+        <Select styles={{
+          control: (baseStyles) => ({
+            ...baseStyles,
+            fontSize: "13px",
+            width: "max-content",
+            minWidth:"300px"
+          }),
+          option: (baseStyles) => ({
+            ...baseStyles,
+            color: 'black',
+            fontSize: "13px"
+          }),
+          menu: (baseStyles) => ({
+            ...baseStyles,
+            width: "max-content",
+            minWidth:"100%"
+          })
+        }}
+          options={options}
+          value={selectedNation}
+          onChange={handleSelection}
+        />
+        <ResetAllButton
+          resetAllPoints={resetAllPoints}
+        />
+      </div>
+    </div>
+  );
 }
 
 export default Nation;
