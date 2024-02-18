@@ -77,6 +77,8 @@ potentialGods:
       // find the set of cheapest paths to increment
       for (const [knownPath, knownPathValue] of Object.entries(potentialGod.knownPaths)) {
         const cost = God.getPathIncrementCost(knownPathValue, basePaths[knownPath]);
+        if (cost > potentialGod.pointsRemaining)
+          continue;
         if (cost === cheapestPathCost)
           cheapestKnownPaths.push(knownPath);
         else if (cost < cheapestPathCost) {
@@ -88,6 +90,8 @@ potentialGods:
 
       for (const [newPath, newPathValue] of potentialGod.newPaths.entries()) {
         const cost = God.getPathIncrementCost(newPathValue, 0);
+        if (cost > potentialGod.pointsRemaining)
+          continue;
         if (cost === cheapestPathCost)
           cheapestNewPaths.push(newPath);
         else if (cost < cheapestPathCost) {
@@ -96,7 +100,11 @@ potentialGods:
           cheapestPathCost = cost;
         }
       }
-
+      
+      //if we can't improve the god, go to next
+      if (cheapestKnownPaths.length + cheapestNewPaths.length === 0)
+        break;
+        
       // if we have enough points to increment all of them, then do it and keep on going
       if (cheapestPathCost * (cheapestKnownPaths.length + cheapestNewPaths.length) <= potentialGod.pointsRemaining) {
         cheapestKnownPaths.forEach((knownPath) => {potentialGod.incrementKnownPath(knownPath);});
@@ -131,6 +139,10 @@ potentialGods:
     }
   }
   
+  //we could not improve over the baseGod
+  if (bestGods.length == 0)
+    bestGods.push(baseGod);
+    
   return bestGods.sort((a, b) => {
     if (a.pointsRemaining < b.pointsRemaining)
       return 1;
