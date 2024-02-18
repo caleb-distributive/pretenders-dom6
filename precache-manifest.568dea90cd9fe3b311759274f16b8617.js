@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "59041a0c9ed0b1239ac531c991fbf9a2",
+    "revision": "397007c4bff2781a52ee17cfbdbbb3ab",
     "url": "/pretenders-dom6/index.html"
   },
   {
-    "revision": "f6c6aac802cd7f9c45ad",
+    "revision": "21a8b674df3b17df8d74",
     "url": "/pretenders-dom6/static/css/main.a74a7782.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pretenders-dom6/static/js/2.c8cd6df8.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f6c6aac802cd7f9c45ad",
-    "url": "/pretenders-dom6/static/js/main.feb0c0f0.chunk.js"
+    "revision": "21a8b674df3b17df8d74",
+    "url": "/pretenders-dom6/static/js/main.1b601c1f.chunk.js"
   },
   {
     "revision": "082744db21198e0489e9",
