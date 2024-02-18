@@ -35,7 +35,7 @@ export function getBlessEffects() {
     {id: 11, f: 8, s: 4, name: "Unbearable Splendour", incarnate: true,
       shortDescription: "Unbearable splendour"
     },
-    {id: 12, a: 1, name: "Precision (*)", incarnate: true,
+    {id: 12, a: 1, name: "Precision (*)",
       shortDescription: "+1 precision"
     },
     {id: 13, a: 2, name: "Shock Resistance (*)",
