@@ -100,13 +100,9 @@ potentialGods:
           cheapestPathCost = cost;
         }
       }
-      
-      //if we can't improve the god, go to next
-      if (cheapestKnownPaths.length + cheapestNewPaths.length === 0)
-        break;
         
       // if we have enough points to increment all of them, then do it and keep on going
-      if (cheapestPathCost * (cheapestKnownPaths.length + cheapestNewPaths.length) <= potentialGod.pointsRemaining) {
+      if (cheapestPathCost * (cheapestKnownPaths.length + cheapestNewPaths.length) <= potentialGod.pointsRemaining && cheapestKnownPaths.length + cheapestNewPaths.length !== 0) {
         cheapestKnownPaths.forEach((knownPath) => {potentialGod.incrementKnownPath(knownPath);});
         cheapestNewPaths.forEach((newPath) => {potentialGod.incrementNewPath(newPath);});
         continue;
