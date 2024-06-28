@@ -16,6 +16,7 @@ npm run build
 ```
 
 ## Changelog
+- Version 2.02.2: Fixed a bug where Pretenders could be omitted when path spread was even.
 - Version 2.02.1: Fixed a bug where EA Therodos and LA Lemuria had incorrect starting Growth values.
 - Version 2.02.0: Added the Bless Point optimizer. This feature, given the current number of remaining design points and selected magic paths, returns a list of the best magic paths for each possible chassis, sorted by number of bless points.
 - Version 2.01.0: Added a filtering search feature to the nation dropdown box
